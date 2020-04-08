@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="static\css.css" href="Osnova" rel='stylesheet' type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Lili</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+        
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+        
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+        
+        .registerbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+        
+        .registerbtn:hover {
+            opacity: 1;
+        }
+        
+        a {
+            color: dodgerblue;
+        }
+        
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        ul.hr {
+        margin: 0; /* Обнуляем значение отступов */
+        padding: 4px; /* Значение полей */
+        width: 900px;
+        }
+        ul.hr li {
+        display: inline; /* Отображать как строчный элемент */
+        margin-right: 5px; /* Отступ слева */
+        border: 1px solid #000; /* Рамка вокруг текста */
+        padding: 3px; /* Поля вокруг текста */
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        
+        }
+        </style>
+</head>
+<body>
+    <div id="">
+        <div id="header">
+            <h1>
+                <a href='/' id='atop'>Lili</a>
+                Регистрация
+                <ul class="hr" id="uldown">
+                    <li><a href="/" class="ali">Главная</a></li>
+                    <li><a href="#" class="ali">Войти</a></li>
+                    <li><a href="#" class="ali">Контакты</a></li>
+                    <li><a href="Lyshee" class="ali">Лучшее</a></li>
+                    <li><a href="Contact" class="ali">Контакты</a></li>
+                    <li><a href="O nas" class="ali">О нас</a></li>
+                </ul>
+            </h1>
+    </div>
+    <div class="">
+        <form action="regi">
+            <div class="container">
+              <h1>Регистрация</h1>
+              <p>Пожалуйста, заполните эту форму, чтобы создать учетную запись.</p>
+              <hr>
+          
+              <label for="email"><b>mail</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+          
+              <label for="psw"><b>Пароль</b></label>
+              <input type="password" placeholder="Enter Password" name="password" required>
+          
+              <label for="psw-repeat"><b>Повторите Пароль</b></label>
+              <input type="password" placeholder="Repeat Password" name="password-repeat" required>
+              <hr>
+          
+              <p>Создавая учетную запись, вы соглашаетесь с нашими <a href="#">условиями</a>.</p>
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+          
+            <div class="container signin">
+              <p>У вас уже есть аккаунт <a href="#">Войти</a>.</p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
