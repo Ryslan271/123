@@ -1,7 +1,17 @@
 from flask import Flask, render_template
+from wtforms import Form, StringField, TextAreaField, SelectField, validators
 import os
+import psycopg2
 
 app = Flask(__name__)
+
+con = psycopg2.connect(
+  database="postgres",
+  user="postgres",
+  password="Qazwsxedc",
+  host="127.0.0.1",
+  port="5432"
+)
 
 
 @app.route("/")
@@ -31,7 +41,12 @@ def regist():
 
 @app.route("/regi")
 def regi():
-    return render_template('Contact.html')
+    cur = con.cursor()
+    cur.execute('''CREATE TABLE Powwer 
+         (Mail TEXT PRIMARY KEY NOT NULL,
+          Power INT NOT NULL);''')
+    con.commit()
+    con.close()
 
 
 if __name__ == '__main__':
