@@ -41,12 +41,7 @@ def regist():
 
 @app.route("/regi")
 def regi():
-    cur = con.cursor()
-    cur.execute('''CREATE TABLE Powwer 
-         (Mail TEXT PRIMARY KEY NOT NULL,
-          Power INT NOT NULL);''')
-    con.commit()
-    con.close()
+    return render_template('regist.html')
 
 
 if __name__ == '__main__':
