@@ -1,7 +1,14 @@
 from flask import Flask, render_template
-
 import os
+import psycopg2
 
+con = psycopg2.connect(
+  database="postgres",
+  user="postgres",
+  password="Qazwsxedc",
+  host="127.0.0.1",
+  port="5432"
+)
 
 app = Flask(__name__)
 
@@ -33,7 +40,12 @@ def regist():
 
 @app.route("/regi")
 def regi():
-    return render_template('regist.html')
+    cur = con.cursor()
+    cur.execute('''CREATE TABLE STUDENT 
+    (Mail TEXT PRIMARY KEY NOT NULL, 
+    Power INT NOT NULL);''')
+    con.commit()
+    con.close()
 
 
 if __name__ == '__main__':
