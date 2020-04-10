@@ -31,8 +31,7 @@ def regist():
 
 @app.route("/regi")
 def regi():
-    return render_template('Regi.py')
-    return render_template('Contact.html')
+    return render_template('Regi.py, Contact.html')
 
 
 if __name__ == '__main__':
