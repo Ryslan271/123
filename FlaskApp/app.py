@@ -27,9 +27,24 @@ def contact():
     return render_template('Contact.html')
 
 
-@app.route('/regist')
+@app.route("/regist")
+def regist():
+    return render_template('regist.html')
+
+
+@app.route("/regi")
 def login():
-    return render_template('Con1.py')
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
+    return render_template('Regist.html', title='Авторизация', form=form)
+
+
+class LoginForm(FlaskForm):
+    username = StringField('Логин', validators=[DataRequired()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    remember_me = BooleanField('Запомнить меня')
+    submit = SubmitField('Войти')
 
 
 if __name__ == '__main__':
