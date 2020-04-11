@@ -27,7 +27,7 @@ def contact():
     return render_template('Contact.html')
 
 
-@app.route('/regist', methods=['GET', 'POST'])
+@app.route('/regist')
 def login():
     form = LoginForm()
     if form.validate_on_submit():
