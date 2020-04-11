@@ -1,3 +1,6 @@
 flask
 flask_ngrok
 psycopg2
+flask_wtf
+wtforms
+wtforms.validators
