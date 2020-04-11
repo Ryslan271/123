@@ -29,7 +29,7 @@ def contact():
 
 @app.route('/regist')
 def login():
-    return render_template('Con.py')
+    return render_template('Con1.py')
 
 
 if __name__ == '__main__':
