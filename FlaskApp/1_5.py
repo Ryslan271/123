@@ -55,3 +55,6 @@ def astronaut_selection():
                        """)
 
     return render_template('Osnova.html')
+  
+  
+astronaut_selection()
