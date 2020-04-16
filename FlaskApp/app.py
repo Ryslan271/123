@@ -8,8 +8,8 @@ from loginform import LoginForm
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
-app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
 @app.route("/")
