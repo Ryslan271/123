@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import os
 import sqlite3
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
-
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 app = Flask(__name__)
 
 
@@ -28,9 +28,12 @@ def contact():
     return render_template('Contact.html')
 
 
-@app.route('/regist', methods=['POST', 'GET'])
-def astronaut_selection():
-    return render_template('1_5.py')
+@app.route('/regist', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/')
+    return render_template('login.html', title='Авторизация', form=form)
 
 
 if __name__ == '__main__':
