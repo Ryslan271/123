@@ -4,7 +4,7 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
 import os
 import sqlite3
-import loginform
+from loginform import LoginForm
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
