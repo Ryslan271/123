@@ -43,7 +43,7 @@ def contact():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-
+    LoginForm.log()
     if form.validate_on_submit():
         return redirect('/login')
 
