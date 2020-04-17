@@ -16,8 +16,6 @@ class LoginForm(FlaskForm):
         self.password = password
         self.remember_me = remember_me
         self.submit = submit
-        
-        self.log(self.username)
 
     def log(self, username):
         self.username = username
@@ -31,4 +29,3 @@ class LoginForm(FlaskForm):
                 return render_template("Osnova.html")
             else:
                 return render_template(url_for('register'))
-        return iter(itervalues(self._fields))
