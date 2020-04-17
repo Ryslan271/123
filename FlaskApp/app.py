@@ -66,8 +66,8 @@ def register():
             conn = sqlite3.connect("One.db")
             cursor = conn.cursor()
             cursor.execute("""UPDATE employees
-                                SET login1 = login_log, 
-                                password1 = password""")
+                SET login1 = 'login_log', 
+                password1 = 'password'""")
             conn.commit()
             conn.close()
 
