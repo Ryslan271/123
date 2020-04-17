@@ -1,14 +1,15 @@
 import os
 import sqlite3
 
-from User.db import db
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required
 from loginform import LoginForm
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
-cursor.execute("""CREATE TABLE employees(id INTEGER PRIMARY KEY AUTOINCREMENT, login1 TEXT, password1 INTEGER)""")
+cursor.execute("""CREATE TABLE IF NOT EXISTS employees(id INTEGER PRIMARY KEY AUTOINCREMENT,
+ login1 TEXT, 
+ password1 INTEGER)""")
 conn.commit()
 conn.close()
 
@@ -51,6 +52,7 @@ def login():
 
 @app.route('/regist', methods=['GET', 'POST'])
 def register():
+    global conn, cursor
     login = request.form.get('login')
     password = request.form.get('password')
     password2 = request.form.get('password2')
@@ -61,7 +63,13 @@ def register():
         elif password != password2:
             flash('пароли не совпадают')
         else:
-            db(append(login, password))
+            conn = sqlite3.connect("One.db")
+            cursor = conn.cursor()
+            cursor.execute("""UPDATE employees
+                                SET login1 = login, 
+                                password1 = password""")
+            conn.commit()
+            conn.close()
 
     return render_template("Regist.html")
 
