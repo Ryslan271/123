@@ -7,7 +7,7 @@ import sqlite3
 
 
 class LoginForm(FlaskForm):
-    def __init__(self, username, password, remember_me, submit):
+    def __init__(self):
         username = StringField('Логин', validators=[DataRequired()])
         password = PasswordField('Пароль', validators=[DataRequired()])
         remember_me = BooleanField('Запомнить меня')
