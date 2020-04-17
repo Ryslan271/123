@@ -60,7 +60,7 @@ def register():
             cursor.execute("""UPDATE TABLE All
                                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
                                  login TEXT username,
-                                password TEXT password
+                                 password TEXT password
                                 """)
     return render_template("Regist.html")
 
