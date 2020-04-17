@@ -13,7 +13,8 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Войти')
 
     def __init__(self, username):
-        self.log(username)
+        self.username = username
+        self.log(self.username)
 
     def log(self, username):
         self.username = username
