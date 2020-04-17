@@ -16,7 +16,7 @@ class LoginForm(FlaskForm):
         self.username = username
         conn = sqlite3.connect("One.db")
         cursor = conn.cursor()
-        cursor.execute("SELECT login FROM All")
+        cursor.execute("SELECT * FROM All")
         rows = cursor.fetchall()
 
         for row in rows:
