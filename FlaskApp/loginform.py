@@ -12,6 +12,9 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
 
+    def __init__(self, username):
+        self.log(username)
+
     def log(self, username):
         self.username = username
         conn = sqlite3.connect("One.db")
