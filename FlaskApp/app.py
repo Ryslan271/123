@@ -74,13 +74,6 @@ def register():
     return render_template("Regist.html")
 
 
-@app.after_request
-def redirect_to_signin(response):
-    if response.status.code == '401':
-        return redirect(url_for('login'))
-    return response
-
-
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
