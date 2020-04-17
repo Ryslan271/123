@@ -45,6 +45,7 @@ def login():
 
 @app.route('/regist', methods=['GET', 'POST'])
 def register():
+    global conn, cursor
     login = request.form.get('login')
     password = request.form.get('password')
     password2 = request.form.get('password2')
