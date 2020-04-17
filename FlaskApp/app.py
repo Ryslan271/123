@@ -1,12 +1,17 @@
-from flask import Flask, render_template, request, redirect, flash, url_for
-from flask_login import login_user, login_required
 import os
-from loginform import LoginForm
 import sqlite3
 
+from User.db import db
+from flask import Flask, render_template, request, redirect, flash, url_for
+from flask_login import login_user, login_required
+from loginform import LoginForm
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
+cursor.execute("""CREATE TABLE employees(id INTEGER PRIMARY KEY AUTOINCREMENT, login1 TEXT, password1 INTEGER)""")
+conn.commit()
+conn.close()
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
@@ -40,12 +45,12 @@ def login():
 
     if form.validate_on_submit():
         return redirect('/login')
+
     return render_template('login.html', title='Авторизация', form=form)
 
 
 @app.route('/regist', methods=['GET', 'POST'])
 def register():
-    global conn, cursor
     login = request.form.get('login')
     password = request.form.get('password')
     password2 = request.form.get('password2')
@@ -56,14 +61,16 @@ def register():
         elif password != password2:
             flash('пароли не совпадают')
         else:
-            conn = sqlite3.connect("One.db")
-            cursor = conn.cursor()
-            cursor.execute("""UPDATE TABLE All
-                                (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                 login TEXT username,
-                                 password INTEGER password)
-                                """)
+            db(append(login, password))
+
     return render_template("Regist.html")
+
+
+@app.after_request
+def redirect_to_signin(response):
+    if response.status.code == '401':
+        return redirect(url_for('login'))
+    return response
 
 
 if __name__ == '__main__':
