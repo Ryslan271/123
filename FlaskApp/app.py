@@ -67,7 +67,7 @@ def register():
 
 @app.after_request
 def redirect_to_signin(response):
-    if response.status.code == 401:
+    if response.status.code == '401':
         return redirect(url_for('login'))
     return response
 
