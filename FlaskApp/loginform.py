@@ -31,3 +31,4 @@ class LoginForm(FlaskForm):
                 return render_template("Osnova.html")
             else:
                 return render_template(url_for('register'))
+        return iter(itervalues(self._fields))
