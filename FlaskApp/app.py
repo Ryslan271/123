@@ -4,6 +4,7 @@ import sqlite3
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required
 from forms import loginform
+from loginform import LoginForm
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
