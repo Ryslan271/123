@@ -8,15 +8,10 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
-    def __init__(self):
-        username = StringField('Логин', validators=[DataRequired()])
-        password = PasswordField('Пароль', validators=[DataRequired()])
-        remember_me = BooleanField('Запомнить меня')
-        submit = SubmitField('Войти')
-        self.username = username
-        self.password = password
-        self.remember_me = remember_me
-        self.submit = submit
+    username = StringField('Логин', validators=[DataRequired()])
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    remember_me = BooleanField('Запомнить меня')
+    submit = SubmitField('Войти')
 
     def login(self, username):
         self.username = username
