@@ -18,7 +18,8 @@ class LoginForm(FlaskForm):
         self.remember_me = remember_me
         self.submit = submit
 
-    def log(self):
+    def login(self, username):
+        self.username = username
         conn = sqlite3.connect("One.db")
         cursor = conn.cursor()
         cursor.execute('SELECT login1 FROM employees')
