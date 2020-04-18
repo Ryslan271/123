@@ -13,21 +13,14 @@ class LoginForm(FlaskForm):
         password = PasswordField('Пароль', validators=[DataRequired()])
         remember_me = BooleanField('Запомнить меня')
         submit = SubmitField('Войти')
-        self.username = username
-        self.password = password
-        self.remember_me = remember_me
-        self.submit = submit
-
-    def log(self, username):
-        self.username = username
         conn = sqlite3.connect("One.db")
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM employees')
         rows = cursor.fetchall()
 
         for row in rows:
-            if row == self.username:
+            if row == username:
                 return render_template("Osnova.html")
             else:
                 return render_template(url_for('register'))
-        return iter(itervalues(self._fields))
+
