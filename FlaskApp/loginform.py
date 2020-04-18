@@ -18,11 +18,10 @@ class LoginForm(FlaskForm):
         self.remember_me = remember_me
         self.submit = submit
 
-    @property
     def log(self):
         conn = sqlite3.connect("One.db")
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM employees')
+        cursor.execute('SELECT login1 FROM employees')
         rows = cursor.fetchall()
 
         for row in rows:
@@ -30,5 +29,3 @@ class LoginForm(FlaskForm):
                 return render_template("Osnova.html")
             else:
                 return render_template(url_for('register'))
-        return iter(itervalues(self._fields))
-
