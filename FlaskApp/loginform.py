@@ -1,9 +1,10 @@
+import sqlite3
+
 from flask import render_template, url_for
+from flask_sqlalchemy import itervalues
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired
-import sqlite3 as lite
-import sqlite3
 
 
 class LoginForm(FlaskForm):
@@ -21,7 +22,7 @@ class LoginForm(FlaskForm):
         self.username = username
         conn = sqlite3.connect("One.db")
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM employees")
+        cursor.execute('SELECT * FROM employees')
         rows = cursor.fetchall()
 
         for row in rows:
@@ -29,3 +30,4 @@ class LoginForm(FlaskForm):
                 return render_template("Osnova.html")
             else:
                 return render_template(url_for('register'))
+        return iter(itervalues(self._fields))
