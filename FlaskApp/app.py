@@ -74,7 +74,7 @@ def onas():
                                 </div>
                         </div>
                         <h1>Register</h1>
-                        'rows'
+                        '''rows'''
                     </body>
                     </html>'''
 
