@@ -18,6 +18,7 @@ conn.close()
 
 
 def login():
+    global f
     if f:
         return render_template('Osnova.html')
     else:
