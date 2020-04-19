@@ -30,53 +30,7 @@ def lyshee():
 
 @app.route("/O nas")
 def onas():
-    con = sqlite3.connect('One.db')
-    with con:
-        cur = con.cursor()
-        cur.execute("SELECT * FROM employees")
-        rows = cur.fetchall()
-        return '''<!DOCTYPE html>
-                    <html lang="en">
-                    <head>
-                        <link href="static\css.css" href="Osnova" rel='stylesheet' type="text/css" />
-                        <meta charset="UTF-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                        <title>Lili</title>
-                    </head>
-                    <body>
-                        <div id="">
-                            <div id="header">
-                                <h1>
-                                    <a href='/' id='atop'>Lili</a>
-                                    Register
-                                </h1>
-                            </div>
-                                <div>
-                                    <ul id="navbar">
-                                        <li><a href="/" id="">Книги</a></li>
-                                        <li><a href="#" id="">Войти</a></li>
-                                        <li><a href="regist" id="">Регистрация</a></li>
-                                        <li><a href="Lyshee" id="">Лучшее</a></li>
-                                        <li><a href="O nas" id="">О нас</a></li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <head>
-                                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                                    </head>
-                                    <body>
-                                        <form action="http://google.com/search" target="_blank" class="form-search">
-                                            <input type="search" name="text" required placeholder="Поиск в интернете">
-                                            <input type="submit" value="&#128269;">
-                                        </form>
-                                    </body>
-                                </div>
-                        </div>
-                        <h1>Register</h1>
-                        '''rows'''
-                    </body>
-                    </html>'''
+    pass
 
 
 @app.route("/Contact")
