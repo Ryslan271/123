@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import render_template, url_for
+from flask import render_template, redirect
 from flask_sqlalchemy import itervalues
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
