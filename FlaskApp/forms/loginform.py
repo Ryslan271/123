@@ -8,6 +8,14 @@ from wtforms.validators import DataRequired
 
 f = None
 
+conn = sqlite3.connect("One.db")
+cursor = conn.cursor()
+cursor.execute("""CREATE TABLE IF NOT EXISTS employees(id INTEGER PRIMARY KEY AUTOINCREMENT,
+ login1 TEXT, 
+ password1 INTEGER)""")
+conn.commit()
+conn.close()
+
 
 def login():
     if f:
