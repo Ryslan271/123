@@ -3,7 +3,7 @@ import sqlite3
 
 from flask import Flask, render_template, request, redirect, flash, url_for
 from flask_login import login_user, login_required
-from loginform import LoginForm
+from forms import loginform
 
 conn = sqlite3.connect("One.db")
 cursor = conn.cursor()
@@ -42,7 +42,7 @@ def contact():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+    form = loginform.LoginForm()
     if form.validate_on_submit():
         return redirect('/login')
 
