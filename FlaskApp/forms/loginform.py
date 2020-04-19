@@ -39,6 +39,5 @@ class LoginForm(FlaskForm):
     for row in rows:
         if row == username:
             f = True
-        else:
-            f = False
+            break
     login()
