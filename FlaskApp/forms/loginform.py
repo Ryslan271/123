@@ -22,7 +22,7 @@ def login():
     if f:
         return render_template('Osnova.html')
     else:
-        return render_template(url_for('register'))
+        return redirect('/regist')
 
 
 class LoginForm(FlaskForm):
