@@ -44,19 +44,3 @@ class LoginForm(FlaskForm):
             f = True
             break
     login()
-
-
-class Reg(FlaskForm):
-    username = StringField('Логин', validators=[DataRequired()])
-    password = PasswordField('Пароль', validators=[DataRequired()])
-    remember_me = BooleanField('Запомнить меня')
-    submit = SubmitField('Войти')
-    conn = sqlite3.connect("One.db")
-    cursor = conn.cursor()
-    cursor.execute("""UPDATE employees
-                                SET login1 = 'username', 
-                                password1 = 'password'
-                                """)
-    conn.commit()
-    conn.close()
-    per()
