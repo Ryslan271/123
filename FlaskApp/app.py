@@ -52,26 +52,7 @@ def login():
 
 @app.route('/regist', methods=['GET', 'POST'])
 def register():
-    global conn, cursor
-    login_log = request.form.get('login')
-    password = request.form.get('password')
-    password2 = request.form.get('password2')
-
-    if request.method == 'POST':
-        if not (login_log or password or password2):
-            flash('пожалуйста заполните все поля')
-        elif password != password2:
-            flash('пароли не совпадают')
-        else:
-            conn = sqlite3.connect("One.db")
-            cursor = conn.cursor()
-            cursor.execute("""UPDATE employees
-                SET login1 = 'login_log', 
-                password1 = 'password'""")
-            conn.commit()
-            conn.close()
-
-    return render_template("Regist.html")
+    loginform.Reg()
 
 
 if __name__ == '__main__':
