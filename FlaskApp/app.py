@@ -30,7 +30,7 @@ def lyshee():
 
 @app.route("/O nas")
 def onas():
-    con = lite.connect('One.db')
+    con = sqlite3.connect('One.db')
     with con:
         cur = con.cursor()
         cur.execute("SELECT * FROM employees")
